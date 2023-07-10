@@ -7,7 +7,9 @@ const jwt = require("jsonwebtoken")
 const bcrypt = require('bcrypt')
 const User = require("../models/user");
 const { validateToken } = require("../helpers/token");
-const { sendVerificationEmail } = require("../helpers/mailer")
+const { sendVerificationEmail, sendResetCode } = require("../helpers/mailer");
+const Code = require("../models/code")
+const generateCode = require("../helpers/generatecode")
 exports.register = async (req, res) => {
     try {
         const {
@@ -87,9 +89,13 @@ exports.register = async (req, res) => {
 
 exports.activateAccount = async (req, res) => {
     try {
+        const validUser = req.user.id;
         const { token } = req.body
         const user = jwt.verify(token, process.env.TOKEN_SCRECT);
         const check = await User.findById(user.id)
+        if (validUser !== user.id) {
+            return res.status(400).json({ message: "you don't have Authenticated User" })
+        }
         if (check.verified == true) {
             return res.status(400).json({ message: "this mail is already exists" })
         } else {
@@ -128,4 +134,93 @@ exports.login = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
+}
+exports.sendVerification = async (req, res) => {
+    try {
+        const id = req.user.id;
+        const user = await User.findById(id);
+        if (user.verified === true) {
+            return res.status(400).json({
+                message: "This account is already activated.",
+            });
+        }
+        const verificationToken = validateToken({
+            id: user._id.toString()
+        },
+            "30m"
+        );
+        const url = `${process.env.BASE_URL}/activate/${verificationToken}`;
+        sendVerificationEmail(user.email, user.first_name, url);
+        return res.status(200).json({
+            message: "Email verification link has been sent to your email.",
+        });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+exports.findUser = async (req, res) => {
+    try {
+        const { email } = req.body
+        const user = await User.findOne({ email }).select("-password")
+        if (!user) {
+            return res.status(400).json({
+                message: "Account doesn't exists",
+            })
+        }
+        return res.status(200).json({
+            email: user.email,
+            picture: user.picture
+        })
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+exports.sendResetPasswordCode = async (req, res) => {
+    try {
+        const { email } = req.body
+        const user = await User.findOne({ email }).select("-password")
+        await Code.findOneAndRemove({ user: user._id })
+        const code = generateCode(5)
+        const savedcode = await new Code({
+            code,
+            user: user._id
+        }).save();
+        sendResetCode(user.email, user.first_name, code)
+        return res.status(200).json({
+            message: "email Reset code has been send to email"
+        })
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+exports.validateResetCode = async (req, res) => {
+    try {
+        const { email, code } = req.body;
+        console.log(code)
+        const user = await User.findOne({ email });
+        const Dbcode = await Code.findOne({
+            user: user._id,
+        });
+        console.log(user._id)
+        if (Dbcode.code !== code) {
+            return res.status(400).json({
+                message: "Verfication does't exists",
+            })
+
+        }
+        return res.status(200).json({ message: "ok" });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+exports.changepassword = async (req, res) => {
+    const { email, password } = req.body
+    const cryptPassword = await bcrypt.hash(password, 12)
+    await User.findOneAndUpdate(
+        { email },
+        {
+            password: cryptPassword
+        }
+    );
+    return res.status(200).json({ message: "ok" })
 }

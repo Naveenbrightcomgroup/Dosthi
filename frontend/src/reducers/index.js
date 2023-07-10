@@ -1,6 +1,8 @@
-import { useReducer } from "./userReducer";
-const { combineReducers } = require("redux");
-const rootReducer=combineReducers({
-    user:useReducer,
+import { combineReducers } from "redux";
+import { userReducer } from "./userReducer";
+
+const rootReducer = combineReducers({
+  user: userReducer,
 });
-export default rootReducer
+
+export default rootReducer;
