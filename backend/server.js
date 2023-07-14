@@ -2,9 +2,17 @@ const express = require("express")
 const mongoose = require("mongoose")
 const app = express();
 const cors = require("cors")
+const fileUpload = require("express-fileupload");
 const dotenv = require('dotenv')
 dotenv.config();
-const userRoutes = require("./routes/User")
+const userRoutes = require("./routes/user")
+const userfiles=require("./routes/upload")
+const userpost=require("./routes/post")
+app.use(
+    fileUpload({
+      useTempFiles: true,
+    })
+  );
 const options = {
     origin: "http://localhost:3000",
     useSucessStatus: 200
@@ -17,7 +25,7 @@ mongoose.connect(process.env.DATABASE_STRING, {
     .catch((err) => console.log("not connected", err))
 const PORT = process.env.PORT || 8000
 app.use(cors(options));
-app.use('/', userRoutes)
+app.use('/', userRoutes,userfiles,userpost)
 app.listen(PORT, () => {
     console.log(`sever is running at ${PORT}....`)
 })
