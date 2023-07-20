@@ -50,11 +50,11 @@ export default function LoginForm({ setVisible }) {
   };
   return (
     <div className="login_wrap">
+     
       <div className="login_1">
+        
         <img src="../../icons/facebook.svg" alt="" />
-        <span>
-          Facebook helps you connect and share with the people in your life.
-        </span>
+    
       </div>
       <div className="login_2">
         <div className="login_2_wrap">
@@ -90,19 +90,23 @@ export default function LoginForm({ setVisible }) {
               </Form>
             )}
           </Formik>
+          <div className="link-form">
           <Link to="/reset" className="forgot_password">
-            Forgotten password?
+            Forgotten password
           </Link>
+          <Link to="/register"
+            className="forgot_pass"
+            onClick={() => setVisible(true)}
+          >
+            Create Account
+          </Link>
+          </div>
           <DotLoader color="#1876f2" loading={loading} size={30} />
 
           {error && <div className="error_text">{error}</div>}
           <div className="sign_splitter"></div>
-          <button
-            className="blue_btn open_signup"
-            onClick={() => setVisible(true)}
-          >
-            Create Account
-          </button>
+         
+         
         </div>
         <Link to="/" className="sign_extra">
           <b>Create a Page</b> for a celebrity, brand or business.

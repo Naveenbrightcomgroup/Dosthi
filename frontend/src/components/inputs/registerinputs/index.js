@@ -23,7 +23,7 @@ export default function RegisterInput({ placeholder, bottom, ...props }) {
             view1 && (field.name === "first_name" || field.name === "last_name")
               ? "100%"
               : view1 && (field.name === "email" || field.name === "password")
-              ? "370px"
+              ? "750px"
               : "300px"
           }`,
         }}
@@ -36,10 +36,7 @@ export default function RegisterInput({ placeholder, bottom, ...props }) {
       {meta.touched && meta.error && (
         <div
           className={view3 ? "input_error input_error_desktop" : "input_error"}
-          style={{
-            transform: "translateY(2px)",
-            left: `${test1 ? "-107%" : test2 ? "107%" : ""}`,
-          }}
+         
         >
           {meta.touched && meta.error && <ErrorMessage name={field.name} />}
           {meta.touched && meta.error && (

@@ -38,7 +38,7 @@ export default function Header() {
       <div className="header_left">
         <Link to="/" className="header_logo">
           <div className="circle">
-            <Logo />
+            {/* <Logo /> */}
           </div>
         </Link>
         <div

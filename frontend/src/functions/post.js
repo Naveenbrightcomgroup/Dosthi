@@ -1,8 +1,8 @@
 import axios from "axios";
 export const createPost = async (
     type,
-    text,
     background,
+    text,
     images,
     user,
     token
@@ -11,8 +11,8 @@ export const createPost = async (
         const { data } = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/createPost`,
             {
                 type,
-                text,
                 background,
+                text,
                 images,
                 user,
             }, {

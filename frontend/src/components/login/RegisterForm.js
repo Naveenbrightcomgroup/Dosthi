@@ -8,8 +8,8 @@ import DotLoader from "react-spinners/DotLoader";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import Cookies from "js-cookie";
-import { useNavigate } from "react-router-dom";
-export default function RegisterForm({ setVisible }) {
+import { useNavigate,Link } from "react-router-dom";
+export default function RegisterForm( ) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userInfos = {
@@ -105,9 +105,15 @@ export default function RegisterForm({ setVisible }) {
   };
   return (
     <div className="blur">
+      <div className="reset_header">
+        <img src="../../../icons/facebook.svg" alt="" />
+       <Link to="/login" className="right_reset">
+            <button className="blue_btn">Login</button>
+          </Link>
+          </div>
       <div className="register">
         <div className="register_header">
-          <i className="exit_icon" onClick={() => setVisible(false)}></i>
+        
           <span>Sign Up</span>
           <span>it's quick and easy</span>
         </div>
@@ -135,7 +141,7 @@ export default function RegisterForm({ setVisible }) {
               );
             } else if (current_date - picked_date > noMoreThan70) {
               setDateError(
-                "it looks like you(ve enetered the wrong info.Please make sure that you use your real date of birth."
+                "it looks like you(ve enetere    d the wrong info.Please make sure that you use your real date of birth."
               );
             } else if (gender === "") {
               setDateError("");
