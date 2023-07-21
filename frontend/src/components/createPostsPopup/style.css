@@ -1,15 +1,19 @@
 .postBox {
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 55%;
+  left: 55%;
   transform: translate(-50%, -50%);
   background: var(--bg-primary);
-  box-shadow: 0 12px 28px 0 var(--shadow-1), 0 2px 4px 0 var(--shadow-2),
-    inset 0 0 0 1px var(--shadow-inset);
+  box-shadow: 0 12px 28px 0 var(--shadow-1), 0 2px 4px 0 var(--shadow-2), inset 0 0 0 1px var(--shadow-inset);
   min-height: 228px;
   width: 500px;
-  border-radius: 5px;
+  border-radius: 40px;
 }
+.left{
+  display: flex;
+  margin-left: 150px;
+}
+
 .box_header {
   position: relative;
   display: flex;
@@ -17,19 +21,28 @@
   justify-content: center;
   font-size: 20px;
   font-weight: 700;
-  padding: 14px 15px 17px 15px;
+  padding: 5px 5px;
   border-bottom: 1px solid var(--bg-third);
 }
 .postBox .small_circle {
   position: absolute;
-  right: 16px;
-  top: 12px;
+  right: 6px;
+  top: 6px;
 }
+
+
 .box_profile {
   display: flex;
-  gap: 12px;
-  padding: 17px 17px 5px 17px;
+  gap: 10px;
+  padding: 5px 10px;
 }
+
+.box_profile_name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
 .box_profile .box_profile_img {
   width: 38px;
   height: 38px;
@@ -39,11 +52,7 @@
 .box_col {
   transform: translateY(-7px);
 }
-.box_profile_name {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
+
 .box_privacy {
   display: flex;
   align-items: center;
@@ -112,7 +121,7 @@
   align-items: center;
   gap: 10px;
   margin: 0 10px;
-  padding: 10px;
+  padding: 2px;
   border-radius: 10px;
   border: 3px solid var(--bg-forth);
 }
@@ -126,31 +135,34 @@
   height: 35px;
   display: grid;
   place-items: center;
+
   cursor: pointer;
   border-radius: 50%;
 }
 .post_submit {
-  width: calc(100% - 18px);
-  margin: 5px 10px;
-  padding: 10px;
+  width: 150px;
+  margin: auto;
+  padding: 12px;
   outline: none;
   border: none;
-  background: var(--blue-color);
+  margin-left: 173px;
+  background: black;
   color: #fff;
   font-weight: 600;
-  border-radius: 5px;
+  border-radius: 50px;
   cursor: pointer;
 }
+
 .overflow_a {
   max-height: 500px;
   overflow-y: auto;
   overflow-x: hidden;
 }
-.input2 {
+input2 {
   position: relative;
   display: block;
   font-size: 15px;
-  min-height: 15px !important;
+  min-height: 6px !important;
 }
 .moveleft {
   transform: translateX(-10px);
@@ -164,21 +176,23 @@
   display: flex;
 }
 .add_pics_wrap {
-  margin: 10px 15px;
+  margin: 5px 5px;
   padding: 10px;
   border: 1px solid var(--bg-third);
-  border-radius: 10px;
+  border-radius: 20px;
 }
+
 .add_pics_inside1 {
   position: relative;
   background: var(--bg-secondary);
   border-radius: 10px;
   padding: 10px;
-  height: 250px;
+  height: 230px;
   display: grid;
   place-items: center;
   cursor: pointer;
 }
+
 .add_col {
   display: flex;
   flex-direction: column;
@@ -209,7 +223,7 @@
   place-items: center;
 }
 .add_col span:first-of-type {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
 }
 .add_col span:last-of-type {

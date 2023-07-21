@@ -1,5 +1,12 @@
 import "./style.css";
 import { Link } from "react-router-dom";
+import HomeIcon from '@mui/icons-material/Home';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import {BiMenuAltLeft} from "react-icons/bi";
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import VideoCameraBackIcon from '@mui/icons-material/VideoCameraBack';
 import {
   ArrowDown,
   Friends,
@@ -38,7 +45,14 @@ export default function Header() {
       <div className="header_left">
         <Link to="/" className="header_logo">
           <div className="circle">
-            {/* <Logo /> */}
+            <div className="waviy">
+              <span style={{ "--i": 1 }}>D</span>
+              <span style={{ "--i": 2 }}>O</span>
+              <span style={{ "--i": 3 }}>S</span>
+              <span style={{ "--i": 4 }}>T</span>
+              <span style={{ "--i": 5 }}>H</span>
+              <span style={{ "--i": 6 }}>I</span>
+            </div>
           </div>
         </Link>
         <div
@@ -50,7 +64,7 @@ export default function Header() {
           <Search color={color} />
           <input
             type="text"
-            placeholder="Search Facebook"
+            placeholder="Search Dosthi"
             className="hide_input"
           />
         </div>
@@ -60,20 +74,32 @@ export default function Header() {
       )}
       <div className="header_middle">
         <Link to="/" className="middle_icon active">
-          <HomeActive />
+          <Tooltip title="Home">
+            <IconButton>
+            <HomeIcon sx={{ fontSize: 40 }} />
+            </IconButton>
+          </Tooltip>
         </Link>
         <Link to="/" className="middle_icon hover1">
-          <Friends color={color} />
-        </Link>
-        <Link to="/" className="middle_icon hover1">
-          <Watch color={color} />
-          <div className="middle_notification">9+</div>
-        </Link>
-        <Link to="/" className="middle_icon hover1">
-          <Market color={color} />
+        <Tooltip title="Friends">
+            <IconButton>
+            <PeopleAltIcon sx={{ fontSize: 40 }} />
+            </IconButton>
+          </Tooltip>
         </Link>
         <Link to="/" className="middle_icon hover1 ">
-          <Gaming color={color} />
+        <Tooltip title="Gameing & Sports">
+            <IconButton>
+            <SportsEsportsIcon sx={{ fontSize: 40 }} />
+            </IconButton>
+          </Tooltip>
+        </Link>
+        <Link to="/" className="middle_icon hover1 ">
+        <Tooltip title="Videos">
+            <IconButton>
+            <VideoCameraBackIcon sx={{ fontSize: 40 }} />
+            </IconButton>
+          </Tooltip>
         </Link>
       </div>
       <div className="header_right">
@@ -81,7 +107,7 @@ export default function Header() {
           <img src={user?.picture} alt="" />
           <span>{user?.first_name}</span>
         </Link>
-        <div
+            {/* <div
           className={`circle_icon hover1 ${showAllMenu && "active_header"}`}
           ref={allmenu}
         >
@@ -91,19 +117,19 @@ export default function Header() {
             }}
           >
             <div style={{ transform: "translateY(2px)" }}>
-              <Menu />
+              <BiMenuAltLeft />
             </div>
-          </div>
+          </div> 
 
           {showAllMenu && <AllMenu />}
         </div>
         <div className="circle_icon hover1">
           <Messenger />
-        </div>
+        </div> 
         <div className="circle_icon hover1">
           <Notifications />
           <div className="right_notification">5</div>
-        </div>
+        </div> */}
         <div
           className={`circle_icon hover1 ${showUserMenu && "active_header"}`}
           ref={usermenu}
@@ -115,12 +141,12 @@ export default function Header() {
           >
             <div style={{ transform: "translateY(2px)" }}>
               <ArrowDown />
-            </div>
-          </div>
+            </div> 
+          </div> 
 
           {showUserMenu && <UserMenu user={user} />}
-        </div>
-      </div>
+          </div>
+          </div>
     </header>
   );
 }

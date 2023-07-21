@@ -94,13 +94,13 @@ export default function ImagePreview({
                         </div>
                     </div>
                 )}
-                <div className="add_pics_inside2">
+                {/* <div className="add_pics_inside2">
                     <div className="add_circle">
                         <i className="phone_icon"></i>
                     </div>
                     <div className="mobile_text">Add phots from your mobile device.</div>
                     <span className="addphone_btn">Add</span>
-                </div>
+                </div> */}
             </div>
         </div>
     );
