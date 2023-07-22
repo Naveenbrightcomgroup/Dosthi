@@ -15,15 +15,15 @@ export default function CreatePost({ user ,setVisible}) {
       <div className="create_splitter"></div>
       <div className="createPost_body">
         <div className="createPost_icon hover1">
-          <LiveVideo color="#f3425f" />
+          <LiveVideo color="black" />
           Live Video
         </div>
         <div className="createPost_icon hover1">
-          <Photo color="#4bbf67" />
+          <Photo color="black" />
           Photo/Video
         </div>
         <div className="createPost_icon hover1">
-          <Feeling color="#f7b928" />
+          <Feeling color="black" />
           Feeling/Activity
         </div>
       </div>

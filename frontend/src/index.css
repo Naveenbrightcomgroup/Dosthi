@@ -12,7 +12,7 @@ html {
 a {
   text-decoration: none;
   color: inherit;
-  text-align:center
+  margin-left:80px
 }
 :root {
   --bg-primary: #fff;
@@ -42,7 +42,7 @@ a {
   border: none;
   outline: none;
   /* background: var(--blue-color); */
-  background: var(--green-color);
+  background: black;
   padding: 8.5px 12px;
   border-radius: 7px;
   font-family: inherit;
@@ -63,7 +63,7 @@ a {
   border-radius: 7px;
   font-family: inherit;
   font-weight: 600;
-  margin-left: -240px;
+  margin-left: -180px;
   font-size: 14px;
   color: #111;
   display: flex;

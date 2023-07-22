@@ -8,7 +8,6 @@ import LoginInput from "../../components/inputs/logininputs";
 import SearchAccount from "./SearchAccount";
 import SendEmail from "./SendEmail";
 import CodeVerification from "./CodeVerification";
-import Footer from "../../components/login/Footer";
 import ChangePassword from "./changepassword";
 export default function Reset() {
   const { user } = useSelector((state) => ({ ...state }));
@@ -33,7 +32,15 @@ export default function Reset() {
   return (
     <div className="reset">
       <div className="reset_header">
-        <img src="../../../icons/facebook.svg" alt="" />
+        {/* <img src="../../../icons/facebook.svg" alt="" /> */}
+        <div className="waviy">
+          <span style={{ "--i": 1 }}>D</span>
+          <span style={{ "--i": 2 }}>O</span>
+          <span style={{ "--i": 3 }}>S</span>
+          <span style={{ "--i": 4 }}>T</span>
+          <span style={{ "--i": 5 }}>H</span>
+          <span style={{ "--i": 6 }}>I</span>
+        </div>
         {user ? (
           <div className="right_reset">
             <Link to="/profile">
@@ -104,7 +111,6 @@ export default function Reset() {
           />
         )}
       </div>
-      <Footer />
     </div>
   );
 }

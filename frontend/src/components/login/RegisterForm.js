@@ -113,7 +113,7 @@
 //           </div>
 //       <div className="register">
 //         <div className="register_header">
-        
+
 //           <span>Sign Up</span>
 //           <span>it's quick and easy</span>
 //         </div>
@@ -416,68 +416,69 @@ export default function RegisterForm({ setVisible }) {
                   onChange={handleRegisterChange}
                 />
               </div>
-
-              <div className="reg_col">
-                <div className="reg_line_header">
-                  Date of birth <i className="info_icon"></i>
+              <div className="grid_left_col">
+                <div className="reg_col">
+                  <div className="reg_line_header">
+                    Date of birth:
+                  </div>
+                  <div className="dob_dropdowns">
+                    <select
+                      name="bDay"
+                      value={bDay}
+                      onChange={handleRegisterChange}
+                      className="dob_dropdown"
+                    >
+                      <option value="" disabled>
+                        Day
+                      </option>
+                      {days.map((day) => (
+                        <option key={day} value={day}>
+                          {day}
+                        </option>
+                      ))}
+                    </select>
+                    <select
+                      name="bMonth"
+                      value={bMonth}
+                      onChange={handleRegisterChange}
+                      className="dob_dropdown"
+                    >
+                      <option value="" disabled>
+                        Month
+                      </option>
+                      {months.map((month) => (
+                        <option key={month} value={month}>
+                          {month}
+                        </option>
+                      ))}
+                    </select>
+                    <select
+                      name="bYear"
+                      value={bYear}
+                      onChange={handleRegisterChange}
+                      className="dob_dropdown"
+                    >
+                      <option value="" disabled>
+                        Year
+                      </option>
+                      {years.map((year) => (
+                        <option key={year} value={year}>
+                          {year}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  {formik.touched.bDay && formik.errors.bDay && (
+                    <div className="input_error">{formik.errors.bDay}</div>
+                  )}
+                  {formik.touched.bMonth && formik.errors.bMonth && (
+                    <div className="input_error">{formik.errors.bMonth}</div>
+                  )}
+                  {formik.touched.bYear && formik.errors.bYear && (
+                    <div className="input_error">{formik.errors.bYear}</div>
+                  )}
                 </div>
-                <div className="dob_dropdowns">
-                  <select
-                    name="bDay"
-                    value={bDay}
-                    onChange={handleRegisterChange}
-                    className="dob_dropdown"
-                  >
-                    <option value="" disabled>
-                      Day
-                    </option>
-                    {days.map((day) => (
-                      <option key={day} value={day}>
-                        {day}
-                      </option>
-                    ))}
-                  </select>
-                  <select
-                    name="bMonth"
-                    value={bMonth}
-                    onChange={handleRegisterChange}
-                    className="dob_dropdown"
-                  >
-                    <option value="" disabled>
-                      Month
-                    </option>
-                    {months.map((month) => (
-                      <option key={month} value={month}>
-                        {month}
-                      </option>
-                    ))}
-                  </select>
-                  <select
-                    name="bYear"
-                    value={bYear}
-                    onChange={handleRegisterChange}
-                    className="dob_dropdown"
-                  >
-                    <option value="" disabled>
-                      Year
-                    </option>
-                    {years.map((year) => (
-                      <option key={year} value={year}>
-                        {year}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                {formik.touched.bDay && formik.errors.bDay && (
-                  <div className="input_error">{formik.errors.bDay}</div>
-                )}
-                {formik.touched.bMonth && formik.errors.bMonth && (
-                  <div className="input_error">{formik.errors.bMonth}</div>
-                )}
-                {formik.touched.bYear && formik.errors.bYear && (
-                  <div className="input_error">{formik.errors.bYear}</div>
-                )}
-              </div>
+             
 
               {/* <div className="reg_col">
                 <div className="reg_line_header">
@@ -505,9 +506,9 @@ export default function RegisterForm({ setVisible }) {
                 />
               </div> */}
 
-<div className="reg_col">
+              <div className="reg_col">
                 <div className="reg_line_header">
-                  Gender <i className="info_icon"></i>
+                  Gender :
                 </div>
                 <select
                   name="gender"
@@ -526,7 +527,7 @@ export default function RegisterForm({ setVisible }) {
                   <div className="input_error">{formik.errors.gender}</div>
                 )}
               </div>
-
+</div>
               {/* <div className="reg_infos">
                 By clicking Sign Up, you agree to our{" "}
                 <span>Terms, Data Policy &nbsp;</span>

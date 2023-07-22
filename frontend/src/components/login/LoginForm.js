@@ -225,7 +225,7 @@ export default function LoginForm({ setVisible }) {
           )}
         </Formik>
         <div className="loader-black">
-        <DotLoader color="black" loading={loading} size={30} />
+        <DotLoader color="black" loading={loading} size={20} />
         </div>
         
         {error && <div className="error_text">{error}</div>}
