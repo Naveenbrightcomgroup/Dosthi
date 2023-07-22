@@ -11,7 +11,7 @@ import CreatePostPopup from "./components/createPostsPopup";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useReducer } from "react";
-import RegisterForm from "./components/login/RegisterForm";
+// import RegisterForm from "./components/login/RegisterForm";
 function reducer(state, action) {
   switch (action.type) {
     case "POSTS_REQUEST":
@@ -86,7 +86,7 @@ function App() {
           <Route path="/login" element={<Login />} exact />
         </Route>
         <Route path="/reset" element={<Reset />} />
-        <Route path="/register" element={<RegisterForm/>} />
+        {/* <Route path="/register" element={<RegisterForm/>} /> */}
        
       </Routes>
     </div>

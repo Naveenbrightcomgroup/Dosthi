@@ -9,7 +9,7 @@
   width: 500px;
   border-radius: 40px;
 }
-.left{
+.left-container{
   display: flex;
   margin-left: 150px;
 }

@@ -12,6 +12,7 @@ html {
 a {
   text-decoration: none;
   color: inherit;
+  text-align:center
 }
 :root {
   --bg-primary: #fff;
@@ -27,7 +28,7 @@ a {
   --dark-color-primary: #242526;
   --dark-color-secondary: #b0b3b8;
   --blue-color: #1876f2;
-  --green-color: #42b72a;
+  --green-color: #b9ad3eb3;
   --light-blue-color: #e7f3ff;
   --border-color: #ccced2;
   --shadow-1: rgba(0, 0, 0, 0.2);
@@ -40,7 +41,8 @@ a {
 .blue_btn {
   border: none;
   outline: none;
-  background: var(--blue-color);
+  /* background: var(--blue-color); */
+  background: var(--green-color);
   padding: 8.5px 12px;
   border-radius: 7px;
   font-family: inherit;
@@ -61,6 +63,7 @@ a {
   border-radius: 7px;
   font-family: inherit;
   font-weight: 600;
+  margin-left: -240px;
   font-size: 14px;
   color: #111;
   display: flex;
